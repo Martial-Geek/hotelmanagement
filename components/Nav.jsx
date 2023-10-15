@@ -33,8 +33,8 @@ const Nav = () => {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/create-prompt" className="black_btn">
-              Create Post
+            <Link href="/create-booking" className="black_btn">
+              Add Booking
             </Link>
 
             <button type="button" onClick={signOut} className="outline_btn">
