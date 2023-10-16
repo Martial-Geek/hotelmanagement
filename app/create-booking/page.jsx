@@ -183,63 +183,15 @@ const CreateBooking = () => {
             Room Specification
           </label>
 
-          {/* LARGE VIP  */}
-
-          {roomCategory.roomSize === "large" &&
-            roomCategory.roomType === "vip" && (
-              <RoomSection
-                roomSpecs={{
-                  roomCategory: roomCategory.roomType,
-                  roomSize: roomCategory.roomSize,
-                  roomsAvailable: roomsAvailable,
-                  bookingCount: bookingCount,
-                  setBookingCount: setBookingCount,
-                }}
-              />
-            )}
-
-          {/* SMALL VIP  */}
-
-          {roomCategory.roomSize === "small" &&
-            roomCategory.roomType === "vip" && (
-              <RoomSection
-                roomSpecs={{
-                  roomCategory: roomCategory.roomType,
-                  roomSize: roomCategory.roomSize,
-                  roomsAvailable: roomsAvailable,
-                  bookingCount: bookingCount,
-                  setBookingCount: setBookingCount,
-                }}
-              />
-            )}
-
-          {/* SMALL REGULAR  */}
-          {roomCategory.roomSize === "small" &&
-            roomCategory.roomType === "regular" && (
-              <RoomSection
-                roomSpecs={{
-                  roomCategory: roomCategory.roomType,
-                  roomSize: roomCategory.roomSize,
-                  roomsAvailable: roomsAvailable,
-                  bookingCount: bookingCount,
-                  setBookingCount: setBookingCount,
-                }}
-              />
-            )}
-
-          {/* LARGE REGULAR  */}
-          {roomCategory.roomSize === "large" &&
-            roomCategory.roomType === "regular" && (
-              <RoomSection
-                roomSpecs={{
-                  roomCategory: roomCategory.roomType,
-                  roomSize: roomCategory.roomSize,
-                  roomsAvailable: roomsAvailable,
-                  bookingCount: bookingCount,
-                  setBookingCount: setBookingCount,
-                }}
-              />
-            )}
+          <RoomSection
+            roomSpecs={{
+              roomCategory: roomCategory.roomType,
+              roomSize: roomCategory.roomSize,
+              roomsAvailable: roomsAvailable,
+              bookingCount: bookingCount,
+              setBookingCount: setBookingCount,
+            }}
+          />
         </form>
       </div>
     </div>
