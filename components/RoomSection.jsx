@@ -1,12 +1,14 @@
 import React from "react";
 
-const RoomSection = ({
-  roomCategory,
-  roomSize,
-  roomsAvailable,
-  bookingCount,
-  setBookingCount,
-}) => {
+const RoomSection = ({ roomSpecs }) => {
+  const {
+    roomCategory,
+    roomSize,
+    roomsAvailable,
+    bookingCount,
+    setBookingCount,
+  } = roomSpecs;
+
   const selectedRoomTypes =
     roomSize === "large"
       ? ["cottage", "bungalow", "suite"]
@@ -23,7 +25,7 @@ const RoomSection = ({
   return (
     <div className="desc">
       {Object.keys(roomData).map((roomType) => (
-        <p key={roomType}>
+        <p className="desc flex gap-2" key={roomType}>
           {roomType} <span>({roomData[roomType]})</span>
           <span
             className="black_btn max-w-fit"
@@ -36,7 +38,7 @@ const RoomSection = ({
               }
             }}
           >
-            {bookingCount[roomType]}
+            {bookingCount[roomType]} (+)
           </span>
         </p>
       ))}
