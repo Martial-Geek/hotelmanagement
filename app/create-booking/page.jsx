@@ -34,7 +34,7 @@ const CreateBooking = () => {
   });
   const [roomCategory, setRoomCategory] = useState({
     roomSize: "large",
-    roomType: "",
+    roomType: "vip",
     roomSpecification: "",
   });
 
@@ -49,23 +49,21 @@ const CreateBooking = () => {
   useEffect(() => {
     const getNoOfRoomsAvailable = async () => {
       // Construct the URL with query parameters for startDate and endDate
-      const startingYear = startDate.getFullYear();
-      const startingMonth = String(startDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to month as it is 0-indexed
-      const startingDay = String(startDate.getDate()).padStart(2, "0");
+      // const startingYear = startDate.getFullYear();
+      // const startingMonth = String(startDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to month as it is 0-indexed
+      // const startingDay = String(startDate.getDate()).padStart(2, "0");
 
       // Create the formatted string
-      const startingDate = `${startingYear}-${startingMonth}-${startingDay}`;
+      // const startingDate = `${startingYear}-${startingMonth}-${startingDay}`;
 
-      const endingYear = endDate.getFullYear();
-      const endingMonth = String(endDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to month as it is 0-indexed
-      const endingDay = String(endDate.getDate()).padStart(2, "0");
+      // const endingYear = endDate.getFullYear();
+      // const endingMonth = String(endDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to month as it is 0-indexed
+      // const endingDay = String(endDate.getDate()).padStart(2, "0");
 
-      const endingDate = `${endingYear}-${endingMonth}-${endingDay}`;
+      // const endingDate = `${endingYear}-${endingMonth}-${endingDay}`;
 
-      console.log(startingDate, endingDate);
-
-      const url = `/api/rooms-available?startDate=${startingDate}&endDate=${endingDate}`;
-      // const url = `/api/rooms-available?startDate=${startDate}&endDate=${endDate}`;
+      // const url = `/api/rooms-available?startDate=${startingDate}&endDate=${endingDate}`;
+      const url = `/api/rooms-available?startDate=${startDate}&endDate=${endDate}&roomType=${roomCategory.roomType}&roomSize=${roomCategory.roomSize}`;
 
       try {
         // Send a GET request with the constructed URL
@@ -172,6 +170,7 @@ const CreateBooking = () => {
             onChange={onChange}
             startDate={startDate}
             endDate={endDate}
+            minDate={new Date()}
             selectsRange
           />
         </div>
@@ -182,7 +181,6 @@ const CreateBooking = () => {
           <label htmlFor="roomSpec" className="desc">
             Room Specification
           </label>
-
           <RoomSection
             roomSpecs={{
               roomCategory: roomCategory.roomType,

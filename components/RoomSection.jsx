@@ -21,7 +21,6 @@ const RoomSection = ({ roomSpecs }) => {
       obj[key] = roomsAvailable[roomCategory][key];
       return obj;
     }, {});
-  console.log(roomData);
   return (
     <div className="desc">
       {Object.keys(roomData).map((roomType) => (

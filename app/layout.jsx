@@ -1,7 +1,8 @@
 import "@styles/globals.css";
 
-import Nav from "@components/Nav";
+import Nav from "@components/shared/Nav";
 import Provider from "@components/Provider";
+import Sidebar from "@components/shared/Sidebar";
 
 export const metadata = {
   title: "UAA",
@@ -16,11 +17,11 @@ const RootLayout = ({ children }) => {
           {/* <div className="main">
             <div className="gradient" />
           </div> */}
-
-          <main className="app bg-gray-950">
-            <Nav />
-            {children}
-          </main>
+          <Nav />
+          <div className="flex">
+            <Sidebar />
+            <main className="app bg-gray-950">{children}</main>
+          </div>
         </Provider>
       </body>
     </html>
