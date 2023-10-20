@@ -9,13 +9,14 @@ import Image from "next/image";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <section className="flex flex-col w-full max-w-fit h-screen py-2 px-4 bg-slate-900">
+    <section className="flex flex-col w-full max-w-[17rem] h-screen py-2 px-4 bg-slate-900">
       {sidebarLinks.map((item) => {
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||
           pathname === item.route;
         return (
           <Link
+            key={item.label}
             href={item.route}
             className={`${
               isActive
@@ -30,7 +31,11 @@ const Sidebar = () => {
               height={20}
               className={`${isActive ? "brightness-125" : "invert"} `}
             />
-            <p className={`${isActive ? "font-bold" : "font-light"}`}>
+            <p
+              className={`${
+                isActive ? "font-bold text-[20px]" : "font-light text-[18px]"
+              }`}
+            >
               {item.label}
             </p>
           </Link>

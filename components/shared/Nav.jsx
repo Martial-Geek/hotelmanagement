@@ -18,8 +18,8 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="flex-between w-full py-3 px-4 bg-slate-900">
-      <Link href="/" className="flex gap-2 flex-center">
+    <nav className="flex-between w-full py-6 px-4 bg-slate-900">
+      <Link href="/" className="flex gap-2 flex-center justify-center">
         <Image
           src="/assets/images/logo.svg"
           alt="Logo Hotel"
@@ -27,6 +27,9 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
+        <p className="font-semibold font-sans text-white text-2xl px-2 orange_gradient">
+          Heera Holiday
+        </p>
       </Link>
 
       {/* Desktop Navigation */}

@@ -19,4 +19,9 @@ export const sidebarLinks = [
     route: "/generate-invoice",
     label: "Generate Invoice",
   },
+  {
+    imgURL: "/assets/icons/room.svg",
+    route: "/update-room",
+    label: "Update Room",
+  },
 ];

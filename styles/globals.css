@@ -78,7 +78,7 @@
 } */
 
 .app {
-  @apply relative z-10 flex items-center flex-col max-w-full w-full h-screen mx-auto sm:px-0 px-6 py-6;
+  @apply relative z-10 flex items-start flex-col max-w-full w-full h-screen mx-auto px-28 py-10;
 }
 .black_btn {
   @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
@@ -93,7 +93,7 @@
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-white/90 sm:text-6xl;
 }
 
 .orange_gradient {
@@ -113,7 +113,7 @@
 }
 
 .desc {
-  @apply mt-5 text-lg text-slate-800 sm:text-xl max-w-2xl font-serif;
+  @apply mt-5 text-lg text-white/75 sm:text-xl max-w-3xl font-serif;
 }
 
 .search_input {

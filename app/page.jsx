@@ -3,22 +3,20 @@ import Image from "next/image";
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
-      <h1 className="head_text text-center">
-        Discover and Share
-        <br className="max-md:hidden" />
-        <span className="orange_gradient text-center">Heera Holiday Hotel</span>
+      <h1 className="head_text orange_gradient text-center">
+        Heera Holiday Hotel
       </h1>
       <p className="desc text-center">
-        Welcome to Heera Holiday! You can easily book luxury,deluxe rooms at
-        economical cost. Food and room managing utilities are also provided
+        Welcome to Heera Holiday! You can easily book luxury/regular
+        rooms,bungalows and cottages at economical cost. Food and room managing
+        services are also provided.
       </p>
 
       <Image
-        className="w-full pt-5"
+        className="my-10 max-w-6xl"
         src="/assets/images/bg.png"
-        width={0}
-        height={0}
-        sizes="100vw"
+        width={2000}
+        height={2000}
       />
     </section>
   );

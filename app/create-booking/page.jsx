@@ -2,10 +2,18 @@
 
 import RoomSection from "@components/RoomSection";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useSession } from "next-auth/react";
 
 const CreateBooking = () => {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  if (status === "unauthenticated") {
+    router.push("/");
+  }
   const [bookingCount, setBookingCount] = useState({
     cottage: 0,
     bungalow: 0,
@@ -94,8 +102,10 @@ const CreateBooking = () => {
   }, [startDate, endDate]);
 
   return (
-    <div>
-      <div className="glassmorphism">
+    <section className="flex gap-14">
+      {/* DETAILS DIV  */}
+
+      <div className="glassmorphism my-4">
         <p className="desc">Room Size</p>
         <div className="flex gap-5 px-5 py-5">
           <span
@@ -162,7 +172,7 @@ const CreateBooking = () => {
           </span>
         </div>
 
-        <div className="py-2">
+        <div className="py-1">
           <p className="desc py-2">Select Date</p>
           <DatePicker
             showIcon
@@ -174,10 +184,13 @@ const CreateBooking = () => {
             selectsRange
           />
         </div>
+      </div>
 
-        {/* FORM */}
+      {/* FORMS*/}
 
-        <form className="py-4">
+      <form className="flex py-4 gap-10">
+        {/* ROOM DIV  */}
+        <div className="glassmorphism text-center flex flex-col">
           <label htmlFor="roomSpec" className="desc">
             Room Specification
           </label>
@@ -190,9 +203,44 @@ const CreateBooking = () => {
               setBookingCount: setBookingCount,
             }}
           />
-        </form>
-      </div>
-    </div>
+        </div>
+
+        <div className="glassmorphism flex flex-col gap-2">
+          <label htmlFor="name" className="desc">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="form_input"
+            placeholder="Enter your name"
+          />
+          <label htmlFor="email" className="desc">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="form_input"
+            placeholder="Enter your email"
+          />
+          <label htmlFor="phone" className="desc">
+            Phone
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            className="form_input"
+            placeholder="Enter your phone"
+          />
+        </div>
+
+        {/* NAME DETAILS  */}
+      </form>
+    </section>
   );
 };
 
